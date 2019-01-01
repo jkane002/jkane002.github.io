@@ -62,7 +62,7 @@ hr.star-dark:after {
 }
 
 section {
-  padding: 10rem 0;
+  padding: 6rem 0;
 }
 
 @media (min-width: 992px) {
@@ -410,6 +410,6 @@ a:focus, a:hover, a:active {
 }
 
 .headerTest {
-    height: 90vh;
+    height: 76vh;
     /* padding-top: 3rem !important; */
 }
