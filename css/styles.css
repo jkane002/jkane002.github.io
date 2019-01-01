@@ -62,7 +62,13 @@ hr.star-dark:after {
 }
 
 section {
-  padding: 6rem 0;
+  padding: 10rem 0;
+}
+
+@media (min-width: 992px) {
+  section {
+      padding: 3rem 0;
+  }
 }
 
 section h2 {
@@ -382,7 +388,7 @@ a:focus, a:hover, a:active {
 
 .img-fluid-face {
   max-width: 100%;
-  height: 70vmin;
+  height: 60vmin;
 }
 
 .svg{
@@ -393,7 +399,7 @@ a:focus, a:hover, a:active {
      align-items: center;
      justify-content: center;
      pointer-events: none;
-     height: calc(10px + 15vmin);
+     /* height: calc(10px + 15vmin); */
      width: 100%;
       -webkit-touch-callout: none;
       -webkit-user-select: none;
@@ -401,4 +407,9 @@ a:focus, a:hover, a:active {
       -moz-user-select: none;
       -ms-user-select: none;
        user-select: none;
+}
+
+.headerTest {
+    height: 90vh;
+    /* padding-top: 3rem !important; */
 }
