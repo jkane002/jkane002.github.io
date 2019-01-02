@@ -122,10 +122,12 @@ section h2 {
   letter-spacing: 0.0625rem;
 }
 
+/* background text color */
 #mainNav .navbar-nav li.nav-item a.nav-link {
   color: #fff;
 }
 
+/* hover color */
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
   color: #18BC9C;
 }
@@ -158,13 +160,14 @@ section h2 {
   #mainNav .navbar-nav {
     margin-top: 0;
   }
+  /*  */
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
-    /* color: #fff; */
-    /* background: #18BC9C; */
+    color: #18BC9C;
+    /* background: #000; */
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
-    color: #fff;
-    /* background: #18BC9C; */
+    /* color: #fff;
+    background: #18BC9C; */
   }
   #mainNav.navbar-shrink {
     padding-top: 0.5rem;
