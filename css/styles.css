@@ -451,3 +451,8 @@ canvas {
     max-width: 100%;
     height: calc(40px + 50vmin);
 }
+
+.selectCardDisable {
+    -webkit-user-select: none;
+
+}
