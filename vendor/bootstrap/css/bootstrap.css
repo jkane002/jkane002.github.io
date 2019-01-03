@@ -81,7 +81,13 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
-  font-size: calc(2px + 3vmin);
+  font-size: calc(1px + 3vmin);
+}
+
+.pFooter {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: calc(5px + 2vmin);
 }
 
 abbr[title],
