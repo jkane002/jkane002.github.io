@@ -136,6 +136,7 @@ blockquote {
 b,
 strong {
   font-weight: bolder;
+  font-size: calc(1px + 3vmin);
 }
 
 small {
@@ -476,6 +477,11 @@ mark,
 .img-fluid {
   max-width: 100%;
   height: auto;
+}
+
+.vid-fluid{
+    height: 25%;
+    max-width: 100%;
 }
 
 .img-thumbnail {
