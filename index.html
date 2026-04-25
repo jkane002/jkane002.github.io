@@ -1,440 +1,745 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" style="background-color:#17202A">
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jonathan Kaneshiro's Portfolio Website">
+  <meta name="keywords" content="Jonathan Kaneshiro, UCR, CS, software engineer, USC ICT">
+  <meta name="author" content="Jonathan Kaneshiro">
+  <meta name="color-scheme" content="dark">
+  <title>Jonathan Kaneshiro</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="icon" href="assets/images/me.jpeg">
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136708583-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'UA-136708583-1');
   </script>
+  <!-- Google Adsense -->
+  <script data-ad-client="ca-pub-3830157433970685" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
+  <style>
+    /* ── Color tokens ───────────────────────────────────────────── */
+    :root {
+      color-scheme: dark;
+      --bg:          #17202A;
+      --bg2:         #202d3a;
+      --text:        #e8e8e8;
+      --text-muted:  #98C6C5;
+      --nav-bg:      #202d3a;
+      --nav-border:  #17202A;
+      --card-bg:     #202d3a;
+      --card-border: #2d3d4e;
+      --card-hover:  #273747;
+      --tag-bg:      #98C6C5;
+      --tag-text:    #17202A;
+      --link:        #98C6C5;
+    }
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Jonathan Kaneshiro's Portfolio Website">
-  <meta name="keywords" content="Jonathan Kaneshiro, UCR, CS, Computer Graphics, student">
-  <meta name="author" content="Jonathan Kaneshiro">
+    /* ── Base ───────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
 
-  <title>Jonathan Kaneshiro</title>
+    html {
+      min-height: 100%;
+      background-color: var(--bg);
+      font-size: 110%;
+    }
 
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      min-height: 100dvh;
+      padding-bottom: 80px; /* 72 × 1.1 */
+    }
 
-  <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
-    type="text/css">
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: var(--text);
+    }
 
-  <!-- Plugin CSS -->
-  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--link); opacity: 0.8; }
 
-  <!-- Custom styles for this template -->
-  <link href="css/styles.css" rel="stylesheet">
+    /* ── Page sections ──────────────────────────────────────────── */
+    .page-section { display: none; }
+    .page-section.active { display: block; }
 
-  <!-- <link class="favicon" href="img/coloredface.png"/> -->
-  <link rel="icon" type="image/png" href="img/coloredfacesquare.png" sizes="192x192">
+    /* Both sections fill remaining height and center content */
+    #section-projects,
+    #section-about {
+      min-height: calc(100dvh - 3.5rem - 80px);
+      align-items: center;
+    }
+    #section-projects.active,
+    #section-about.active {
+      display: flex;
+    }
+    #section-projects.active.detail-view {
+      align-items: flex-start;
+    }
 
+    /* About — center everything horizontally */
+    #section-about .content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
+    /* ── Content wrapper ────────────────────────────────────────── */
+    .content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      width: 100%;
+    }
+
+    /* ── Name title ─────────────────────────────────────────────── */
+    #name_title {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 0.5rem;
+    }
+    #name_title button {
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      cursor: pointer;
+    }
+    #name_title button:hover { opacity: 0.75; }
+
+    /* ── Section label ──────────────────────────────────────────── */
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── About ──────────────────────────────────────────────────── */
+    .about-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    #me-img {
+      width: 88px;  /* 80 × 1.1 */
+      height: 88px;
+      object-fit: cover;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .about-header-text h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--text);
+      margin: 0 0 0.2rem;
+    }
+
+    .about-tagline {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .about-bio {
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-size: 0.97rem;
+      max-width: 600px;
+      margin-bottom: 1.75rem;
+    }
+    .about-bio p { margin-bottom: 0.75rem; }
+    .about-bio p:last-child { margin-bottom: 0; }
+
+    .about-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .about-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--text);
+      border: 1px solid var(--card-border);
+      border-radius: 9px; /* 8 × 1.1 */
+      padding: 0.4rem 0.9rem;
+      text-decoration: none;
+      transition: background-color 0.15s;
+    }
+    .about-links a:hover { background-color: var(--card-hover); opacity: 1; }
+
+    /* ── Projects grid ──────────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── Pagination ─────────────────────────────────────────────── */
+    #grid-pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pag-btn {
+      background: none;
+      border: 1px solid var(--card-border);
+      border-radius: 9px;
+      color: var(--text);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.15s;
+    }
+    .pag-btn:disabled { opacity: 0.25; cursor: default; }
+    .pag-btn:not(:disabled):hover { background-color: var(--card-hover); }
+
+    .pag-info {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      min-width: 3rem;
+      text-align: center;
+    }
+
+    /* ── Mobile ─────────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+    }
+
+    .grid-element {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 13px; /* 12 × 1.1 */
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .grid-element:hover {
+      transform: translateY(-2px);
+      background-color: var(--card-hover);
+      border-color: var(--text-muted);
+    }
+
+    .thumb-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background-color: var(--bg2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.25rem; /* 2.5 × 0.9 */
+      color: var(--text-muted);
+    }
+
+    .thumbnail {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .post-description { padding: 0.67rem 0.9rem 0.9rem; } /* × 0.9 */
+    .post-description h3 { font-size: 0.9rem; margin-bottom: 0.2rem; } /* 1rem × 0.9 */
+    .post-description h6 {
+      font-size: 0.7rem; /* 0.78 × 0.9 */
+      font-weight: 400;
+      color: var(--text-muted);
+      margin: 0;
+      font-family: 'Lato', sans-serif;
+    }
+
+    /* ── Project detail ─────────────────────────────────────────── */
+    .project-detail { display: none; }
+    .project-detail.active { display: block; }
+
+    .back-btn {
+      background: none;
+      border: 1px solid var(--card-border);
+      border-radius: 9px; /* 8 × 1.1 */
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.35rem 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-bottom: 1.5rem;
+      transition: background-color 0.15s;
+    }
+    .back-btn:hover { background-color: var(--card-hover); }
+
+    .detail-title { font-size: 1.5rem; margin-bottom: 0.2rem; }
+    .detail-sub {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-family: 'Lato', sans-serif;
+    }
+    .detail-desc {
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+    .detail-tags { margin-bottom: 1rem; }
+    .detail-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    .detail-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 1px solid var(--card-border);
+      border-radius: 9px; /* 8 × 1.1 */
+      padding: 0.45rem 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      transition: background-color 0.15s;
+    }
+    .detail-link-btn:hover { background-color: var(--card-hover); color: var(--text); }
+
+    /* ── Tags ───────────────────────────────────────────────────── */
+    .tag {
+      display: inline-block;
+      background-color: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 6px; /* 5 × 1.1 */
+      padding: 2px 9px;   /* 8 × 1.1 */
+      font-size: 0.72rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      margin: 2px;
+    }
+
+    /* ── Bottom navbar ──────────────────────────────────────────── */
+    #mainNav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 66px;                    /* 60 × 1.1 */
+      background-color: var(--nav-bg);
+      border-top: 1px solid var(--nav-border);
+      border-top-left-radius: 13px;    /* 12 × 1.1 */
+      border-top-right-radius: 13px;
+      display: flex;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-links { display: flex; gap: 0.5rem; }
+
+    .nav-link-item {
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      color: #d8d8d8;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.35rem 0.75rem;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: color 0.15s, border-bottom-color 0.15s;
+    }
+    .nav-link-item:hover { color: #fff; }
+    .nav-link-item.active { color: #fff; border-bottom-color: var(--text-muted); }
+  </style>
 </head>
 
-<body id="page-top">
+<body>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg bg-nav fixed-bottom" id="mainNav">
-    <div class="container">
-      <button class="navbar-toggler navbar-toggler-right  bg-primary text-white rounded" type="button"
-        data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <i class="fas fa-bars">
-        </i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-center" href="#page-top">Home</a>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-center" href="#projects">Projects</a>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-center" href="#about">About</a>
-          </li>
-          <!-- <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-center" href="#cg">Computer Graphics</a>
-            </li> -->
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-center" href="#page-bottom">Contact</a>
-          </li>
-        </ul>
+  <div id="name_title">
+    <button onclick="showSection('projects')">Jonathan Kaneshiro</button>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       PROJECTS SECTION
+       ════════════════════════════════════════════════════════════ -->
+  <section class="page-section active" id="section-projects">
+    <div class="content">
+      <!-- ── Grid ── -->
+      <div class="projects-grid" id="projects-grid">
+
+        <!--
+          ── HOW TO ADD A PROJECT CARD ──────────────────────────────
+          Copy inside .projects-grid, then add a matching detail div:
+
+          <div class="grid-element" onclick="showDetail('your-title-slug')">
+            <div class="thumb-placeholder"><i class="bi bi-code-slash"></i></div>
+            OR: <img class="thumbnail" src="assets/images/thumb.jpg" alt="...">
+            <div class="post-description">
+              <h3>Project Title</h3>
+              <h6>Tech · Stack</h6>
+            </div>
+          </div>
+          ─────────────────────────────────────────────────────────── -->
+
+        <div class="grid-element" onclick="showDetail('usc-ict-animation-pipeline')">
+          <div class="thumb-placeholder"><i class="bi bi-layers"></i></div>
+          <div class="post-description">
+            <h3>USC ICT Animation Pipeline</h3>
+            <h6>Unity3D · C# · Animation</h6>
+          </div>
+        </div>
+
+        <div class="grid-element" onclick="showDetail('virtual-reality-game')">
+          <div class="thumb-placeholder"><i class="bi bi-headset-vr"></i></div>
+          <div class="post-description">
+            <h3>Virtual Reality Game</h3>
+            <h6>Unity3D · VR · C#</h6>
+          </div>
+        </div>
+
+        <div class="grid-element" onclick="showDetail('android-app')">
+          <div class="thumb-placeholder"><i class="bi bi-phone"></i></div>
+          <div class="post-description">
+            <h3>Android App</h3>
+            <h6>Android · Java · UI Design</h6>
+          </div>
+        </div>
+
+        <div class="grid-element" onclick="showDetail('portfolio-website')">
+          <div class="thumb-placeholder"><i class="bi bi-globe"></i></div>
+          <div class="post-description">
+            <h3>Portfolio Website</h3>
+            <h6>Python · Django · Bootstrap</h6>
+          </div>
+        </div>
+
+      </div><!-- /projects-grid -->
+
+      <!-- ── Detail views ── -->
+
+      <!--
+        ── HOW TO ADD A PROJECT DETAIL ───────────────────────────────
+        id must be "detail-" + the slug used in the card's onclick.
+
+        <div class="project-detail" id="detail-your-title-slug">
+          <button class="back-btn" onclick="closeDetail()">
+            <i class="bi bi-arrow-left"></i> Back
+          </button>
+          <h2 class="detail-title">Project Title</h2>
+          <p class="detail-sub">Category</p>
+          <p class="detail-desc">Description.</p>
+          <div class="detail-tags"><span class="tag">Tag</span></div>
+          <div class="detail-links">
+            <a class="detail-link-btn" href="https://github.com/..." target="_blank">
+              <i class="bi bi-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
+        ─────────────────────────────────────────────────────────── -->
+
+      <div class="project-detail" id="detail-usc-ict-animation-pipeline">
+        <button class="back-btn" onclick="closeDetail()"><i class="bi bi-arrow-left"></i> Back</button>
+        <h2 class="detail-title">USC ICT Animation Pipeline</h2>
+        <p class="detail-sub">Internship</p>
+        <p class="detail-desc">Built an animation pipeline for the USC Institute for Creative Technologies using Unity3D. The pipeline streamlined the workflow for animators, reducing manual handoff steps and improving iteration speed across the team.</p>
+        <div class="detail-tags">
+          <span class="tag">Unity3D</span>
+          <span class="tag">C#</span>
+          <span class="tag">Animation</span>
+          <span class="tag">Pipeline</span>
+        </div>
+        <div class="detail-links"></div>
+      </div>
+
+      <div class="project-detail" id="detail-virtual-reality-game">
+        <button class="back-btn" onclick="closeDetail()"><i class="bi bi-arrow-left"></i> Back</button>
+        <h2 class="detail-title">Virtual Reality Game</h2>
+        <p class="detail-sub">Game Development</p>
+        <p class="detail-desc">Developed a virtual reality game as part of a college project. Built immersive 3D environments, implemented VR input systems, and optimized real-time rendering performance in Unity3D.</p>
+        <div class="detail-tags">
+          <span class="tag">Unity3D</span>
+          <span class="tag">VR</span>
+          <span class="tag">C#</span>
+          <span class="tag">3D</span>
+        </div>
+        <div class="detail-links"></div>
+      </div>
+
+      <div class="project-detail" id="detail-android-app">
+        <button class="back-btn" onclick="closeDetail()"><i class="bi bi-arrow-left"></i> Back</button>
+        <h2 class="detail-title">Android App</h2>
+        <p class="detail-sub">Mobile Development</p>
+        <p class="detail-desc">Built the user interface for an Android application, focusing on intuitive UX, responsive layouts, and smooth navigation across multiple screens.</p>
+        <div class="detail-tags">
+          <span class="tag">Android</span>
+          <span class="tag">Java</span>
+          <span class="tag">UI Design</span>
+          <span class="tag">Mobile</span>
+        </div>
+        <div class="detail-links"></div>
+      </div>
+
+      <div class="project-detail" id="detail-portfolio-website">
+        <button class="back-btn" onclick="closeDetail()"><i class="bi bi-arrow-left"></i> Back</button>
+        <h2 class="detail-title">Portfolio Website</h2>
+        <p class="detail-sub">Web Development</p>
+        <p class="detail-desc">Designed and built a personal portfolio website to showcase projects, host a blog, and offer tutoring services. Originally built with Django on Heroku with AWS S3; migrated to a static GitHub Pages site.</p>
+        <div class="detail-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Django</span>
+          <span class="tag">Bootstrap</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <div class="detail-links">
+          <a class="detail-link-btn" href="https://github.com/jkane002" target="_blank">
+            <i class="bi bi-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       ABOUT SECTION
+       ════════════════════════════════════════════════════════════ -->
+  <section class="page-section" id="section-about">
+    <div class="content">
+
+      <div class="about-header">
+        <!--
+          Replace src with your real photo:
+          src="assets/images/me.jpeg"
+        -->
+        <img
+          src="https://ui-avatars.com/api/?name=Jonathan+Kaneshiro&size=160&background=17202A&color=98C6C5&bold=true"
+          alt="Jonathan Kaneshiro"
+          id="me-img"
+        >
+        <div class="about-header-text">
+          <h1>Jonathan Kaneshiro</h1>
+          <p class="about-tagline">Software Quality Assurance Engineer</p>
+        </div>
+      </div>
+
+      <div class="about-bio">
+        <p>I've spent the last 5 years in quality assurance — starting out as a tester and growing into an engineering role. I care a lot about building things that actually work, and I take pride in catching what others miss.</p>
+        <p>Outside of work, I enjoy trying new restaurants, getting lost in good music, traveling, chasing good views, and staying active at the gym.</p>
+      </div>
+
+      <div class="about-links">
+        <a href="https://www.linkedin.com/in/jkaneshiro" target="_blank">
+          <i class="bi bi-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/jkane002" target="_blank">
+          <i class="bi bi-github"></i> GitHub
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Bottom navbar ── -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <div class="nav-links">
+        <button class="nav-link-item active" id="nav-projects" onclick="showSection('projects')">Projects</button>
+        <button class="nav-link-item" id="nav-about" onclick="showSection('about')">About</button>
       </div>
     </div>
   </nav>
 
-  <div id="particles"> </div>
-  <!-- Header -->
-  <section>
-    <div class="container text-center headerTest selectDisable">
-      <img class="img-fluid-face mx-auto" src="img/coloredface.png" alt="Portrait face designed by Micah">
-      <img class="mx-auto mb-3 svg" src="img/JK.svg" alt="My name">
-    </div>
-  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Projects Grid Section -->
-  <section class="portfolio">
-    <div class="container" id="projects">
-      <h2 class="text-center   text-white mb-0 ">Projects</h2>
-      <hr class="star-light mb-5">
-      <div class="row mx-2">
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#carnivalgames">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <!-- <i class="fas fa-search-plus fa-3x"> -->
-                <h2> Virtual Reality</h2>
-                <!-- </i> -->
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/carnival.png" alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#rpark">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <!-- <i class="fas fa-search-plus fa-3x"> -->
-                <h2> Android App</h2>
-                <!-- </i> -->
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/app.png" alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#virtualhumansinternship">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <!-- <i class="fas fa-search-plus fa-3x"> -->
-                <h2>USC ICT Internship</h2>
-                <!-- </i> -->
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/blendshapes.png" alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#Pomo">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <!-- <i class="fas fa-search-plus fa-3x"> -->
-                <h2>Animated Short</h2>
-                <!-- </i> -->
-              </div>
-            </div>
-            <img class="img-fluid" src="img/cs193/PomoRig.png" alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#ballheroID">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <h2>3D Platform Game</h2>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/ballhero_header.png" alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#ee120bID">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <h2>Embedded Systems</h2>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/led_rainbow.jpeg" alt="">
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-  </div>
-  </div>
-  </section>
+  <script>
+    let currentPage = 0;
 
-  <!-- About Section -->
-  <section class="portfolio">
-    <div class="container" id="about">
-      <h2 class="text-center   text-white">About</h2>
-      <hr class="star-light mb-5">
-      <div class="row">
-        <div class="col-lg-6 ml-auto text-center text-white">
-          <p>Recent UC Riverside graduate with a bachelor's degree in computer science. Currently looking for a
-            full-time software engineering position in mobile development or computer graphics.</p>
-          <p>During my college career, I participated in a plethora of programming-related projects such as developing a
-            virtual reality game, coding rendering scripts, directing an animated short in Maya, and building the user
-            interface for an Android app. I also interned with the USC Institute for Creative Technologies and built
-            their animation pipeline using Unity3D Game Engine.</p>
-        </div>
-        <div class="col-lg-4 mr-auto pt-4 text-center text-white">
-          <p>Outside of tech, I have a couple of side hustles — thrift reselling and investing in the stock market —
-            which have taught me the value of data analytics, research, financial technology (Fintech), and customer
-            service. </p>
-        </div>
-      </div>
-    </div>
-  </section>
+    function getPageSize() { return window.innerWidth <= 768 ? 1 : 4; }
 
-  <!-- Footer -->
-  <footer class="footer text-center" id="page-bottom">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 mb-5 pt-4 mb-lg-0">
-          <h4 class="  mb-3">Location</h4>
-          <p class="pFooter"><i class="fa fa-map-marker-alt" aria-hidden="true"></i> <a
-              href="https://goo.gl/maps/b2LfBHXj1FS2" target="_blank">West Covina, CA</a></p>
-        </div>
-        <div class="col-md-4 mb-5 mb-lg-0">
-          <h4 class="  mb-3">Contact me</h4>
-          <ul class="list-inline mb-0">
-            <li class="list-inline-item">
-              <a class="btn btn-outline-light btn-social text-center rounded-circle"
-                href="https://linkedin.com/in/jkaneshiro" target="_blank">
-                <i class="fab fa-fw fa-linkedin"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://github.com/jkane002"
-                target="_blank">
-                <i class="fab fa-fw fa-github"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn btn-outline-light btn-social text-center rounded-circle"
-                href="mailto:jkaneshiro97@gmail.com?Subject=Hello%20Again" target="_blank">
-                <i class="fab fa fa-envelope"></i>
-              </a>
-            </li>
-            <!-- <li class="list-inline-item">
-                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#" target="_blank">
-                  <i class="fab fa-fw fa-spotify"></i>
-                </a>
-              </li> -->
-          </ul>
-        </div>
-        <!-- <div class="col-md-4">
-            <h4 class="pt-4 mb-3">CV</h4>
-            <a class="btn btn-outline-light btn-social text-center rounded-circle" href="../img/CV_JonathanKaneshiro.pdf" target="_blank">
-              <i class="fab fa fa-file"></i>
-            </a>
-          </div> -->
-      </div>
+    // ── Section switching ────────────────────────────────────────
+    function showSection(name) {
+      document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-link-item').forEach(b => b.classList.remove('active'));
+      document.getElementById('section-' + name).classList.add('active');
+      document.getElementById('nav-' + name).classList.add('active');
+      if (name === 'projects') { currentPage = 0; renderGrid(); }
+      history.pushState({}, '', name === 'projects' ? '/' : '/#' + name);
+      window.scrollTo(0, 0);
+    }
 
-    </div>
-    <div class="pb-5 text-center text-white">
-      <div class="container">
-        <small>Illustration: <a href="https://www.evangmicah.com/" target="_blank">Micah</a> |
-          Name Font: <a href="https://www.dafont.com/yusril-muhtadi.d6497" target="_blank">Yusril Muhtadi</a>
-        </small>
-        <br>
-        <small>&copy; Jonathan Kaneshiro 2020</small>
-      </div>
-    </div>
-  </footer>
-  <!-- Portfolio Modals Portfolio Modals Portfolio Modals Portfolio Modals  -->
+    // ── Project detail ───────────────────────────────────────────
+    function showDetail(id) {
+      history.pushState({ id }, '', '/#' + id);
+      renderDetail(id);
+    }
 
-  <!-- 1:1.3846 -->
-  <!-- Portfolio Modal 1 -->
-  <div class="portfolio-modal mfp-hide" id="carnivalgames">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary   mb-0">Carnival Games VR</h2>
-            <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src="img/portfolio/balltoss.png" alt="">
-            <p class="mb-2">A virtual reality carnival experience built for Oculus Rift using C# and Unity Game Engine.
-            </p>
-            <p class="mb-3"><a href="https://github.com/jkane002/CarnivalGamesVR" target="_blank">View on GitHub<a></p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss text-center" href="#">
-              <i class="fa fa-close"></i>
-              Close</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    function closeDetail() {
+      history.back();
+    }
 
-  <!-- Portfolio Modal 2 -->
-  <div class="portfolio-modal mfp-hide" id="rpark">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary ">Parking App</h2>
-            <hr class="star-dark mb-5">
-            <iframe class="img-fluid-youtube mb-5 mx-auto" src="https://www.youtube.com/embed/jNCptu-k7zg?showinfo=0"
-              frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowfullscreen></iframe>
-            <!-- <img class="img-fluid mb-5" src="img/portfolio/app.png" alt=""> -->
-            <p class="mb-2">A parking app that helps UC Riverside students find available parking spaces at certain
-              parking lots. Built using Java and Android Studio.</p>
-            <p class="mb-3"><a href="https://github.com/jkane002/parkingapp" target="_blank">View on GitHub</a></p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss text-center" href="#">
-              <i class="fa fa-close"></i>
-              Close</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    function renderDetail(id) {
+      document.getElementById('projects-grid').style.display = 'none';
+      const pag = document.getElementById('grid-pagination');
+      if (pag) pag.style.display = 'none';
+      document.querySelectorAll('.project-detail').forEach(d => d.classList.remove('active'));
+      document.getElementById('detail-' + id).classList.add('active');
+      document.getElementById('section-projects').classList.add('detail-view');
+      window.scrollTo(0, 0);
+    }
 
-  <!-- Portfolio Modal 3 -->
-  <div class="portfolio-modal mfp-hide" id="virtualhumansinternship">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary   mb-0">Blendshape Animation</h2>
-            <hr class="star-dark mb-5">
-            <iframe
-              src="https://docs.google.com/presentation/d/e/2PACX-1vSrOpX98xkrso4SoM3-8Wab_be523PdWTmbkSnlimJqo5GtvzsaK9L2kUOwp0tgfFyg5_wgYm8OOXO9/embed?start=false&loop=false&delayms=3000"
-              frameborder="0" class="img-fluid-ppt mb-5" allowfullscreen="true" mozallowfullscreen="true"
-              webkitallowfullscreen="true"></iframe>
-            <!-- <embed src"img/Blendshapes.pdf" width="500" height="375" type='application/pdf'> -->
-            <p class="mb-3">A presentation summarizing my summer internship at <a href="http://vgl.ict.usc.edu/"
-                target="_blank">
-                <br>USC Institute for Creative Technologies.</a></p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss text-center" href="#">
-              <i class="fa fa-close"></i>
-              Close</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    function renderGrid() {
+      document.querySelectorAll('.project-detail').forEach(d => d.classList.remove('active'));
+      document.getElementById('section-projects').classList.remove('detail-view');
+      const grid = document.getElementById('projects-grid');
+      grid.style.display = 'grid';
 
-  <!-- Portfolio Modal 4 -->
-  <div class="portfolio-modal mfp-hide" id="Pomo">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary   mb-0">CS 193: Independent Study (Animation)</h2>
-            <hr class="star-dark">
-            <img class="img-fluid mb-3" src="/img/cs193/Pomo.png" alt="">
-            <p class="mb-4"> Meet Pómo.</p>
-            <img class="img-fluid mb-3" src="/img/cs193/Pomo_home.png" alt="">
-            <p class="mb-4"> He lives on the hour hand of a clock.</p>
-            <video class="img-fluid mb-3" controls="controls">
-              <source src="/img/cs193/Pomo_storyboard.mp4" type="video/mp4">
-            </video>
-            <p class="mb-4"> Here is the animatic: the preliminary version of the animated short. Used for timing
-              various camera perspectives.</p>
-            <video class="img-fluid mb-3" controls="controls">
-              <source src="/img/cs193/Pomo_2.mp4" type="video/mp4">
-            </video>
-            <p class="mb-4"> One portion of the rough animation I created for my independent study class where I learned
-              about 3D modeling, rigging, and animating in Autodesk Maya.</p>
-            <p class="mb-3"><a href="/img/cs193/CS193.pdf" target="_blank">Read my final paper</a></p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss text-center" href="#">
-              <i class="fa fa-close"></i>
-              Close</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+      const pageSize = getPageSize();
+      const cards = Array.from(grid.querySelectorAll('.grid-element'));
+      const total = cards.length;
+      const totalPages = Math.ceil(total / pageSize);
+      const start = currentPage * pageSize;
+      const end = start + pageSize;
 
-  <!-- Portfolio Modal 5 -->
-  <div class="portfolio-modal mfp-hide" id="ballheroID">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary   mb-0">Ball Hero: Senior Project</h2>
-            <hr class="star-dark mb-5">
-            <!-- <div class="embed-responsive-3by4"> -->
-            <img class="img-fluid mb-3" src="img/portfolio/ballhero_header.png" alt="">
-            <p class="mb-1">Above: screenshot of my level design for the game.</p>
-            <p class="mb-2">Below: a quick youtube video showing all game levels.</p>
-            <p class="text-center"><a href="https://youtu.be/utbGed9lw78" target="_blank">**Best to watch on
-                YouTube**</a></p>
-            <iframe class="embed-responsive-item img-fluid mb-3" height="560" width="315"
-              src="https://www.youtube.com/embed/utbGed9lw78?showinfo=0" frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowfullscreen></iframe>
-            <!-- <img class="img-fluid mb-5" src="img/portfolio/app.png" alt=""> -->
-            <!-- </div> -->
-            <p class="mb-1">A 3D platform video game created in Unity 3D</p>
-            <p class="mb-3"><a href="https://github.com/jkane002/Senior_Design" target="_blank">View on GitHub<a></p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss text-center" href="#">
-              <i class="fa fa-close"></i>
-              Close</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+      cards.forEach((card, i) => {
+        card.style.display = (i >= start && i < end) ? '' : 'none';
+      });
 
-  <!-- Portfolio Modal 6 -->
-  <div class="portfolio-modal mfp-hide" id="ee120bID">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary   mb-0">LED Strip: Visualizing Sorting Algorithms</h2>
-            <hr class="star-dark mb-5">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ZWE3JITESDY" frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <p class="mb-3">My project uses an individually addressable W2812B LED light strip to visualize different
-              algorithms that sort colors based on their RGB value.</p>
-            <p class="mb-1"><a href="https://drive.google.com/open?id=1kIY5CHfyX2JFLQebBUTWotVbMwF6GiqW"
-                target="_blank">View on Google Drive<a></p>
-            <p class="mb-2"><a href="https://youtu.be/ZWE3JITESDY" target="_blank">Watch the video on YouTube<a></p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss text-center" href="#">
-              <i class="fa fa-close"></i>
-              Close</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+      // Pagination controls
+      let pag = document.getElementById('grid-pagination');
+      if (totalPages <= 1) {
+        if (pag) pag.style.display = 'none';
+        return;
+      }
+      if (!pag) {
+        pag = document.createElement('div');
+        pag.id = 'grid-pagination';
+        grid.after(pag);
+      }
+      pag.style.display = 'flex';
+      pag.innerHTML = `
+        <button class="pag-btn" onclick="changePage(-1)" ${currentPage === 0 ? 'disabled' : ''} aria-label="Previous page">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <span class="pag-info">${currentPage + 1} / ${totalPages}</span>
+        <button class="pag-btn" onclick="changePage(1)" ${currentPage >= totalPages - 1 ? 'disabled' : ''} aria-label="Next page">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+      `;
+    }
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    function changePage(dir) {
+      const cards = document.getElementById('projects-grid').querySelectorAll('.grid-element');
+      const totalPages = Math.ceil(cards.length / getPageSize());
+      currentPage = Math.max(0, Math.min(currentPage + dir, totalPages - 1));
+      renderGrid();
+      window.scrollTo(0, 0);
+    }
 
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    // ── Swipe to navigate (mobile) ───────────────────────────────
+    let touchStartX = 0;
+    let touchStartY = 0;
+    const projectsSection = document.getElementById('section-projects');
 
+    projectsSection.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
 
-  <!-- Custom scripts for this template -->
-  <script src="js/freelancer.min.js"></script>
+    projectsSection.addEventListener('touchend', e => {
+      if (getPageSize() !== 1) return; // swipe only on mobile
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+        changePage(dx < 0 ? 1 : -1);
+      }
+    }, { passive: true });
 
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="js/index.js"></script>
+    // ── Re-render on resize (mobile ↔ desktop) ───────────────────
+    window.addEventListener('resize', () => { currentPage = 0; renderGrid(); });
 
+    // ── Handle browser back / forward ────────────────────────────
+    window.addEventListener('popstate', handleRoute);
+
+    function handleRoute() {
+      const hash = window.location.hash.slice(1);
+      if (hash === 'about') {
+        document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-link-item').forEach(b => b.classList.remove('active'));
+        document.getElementById('section-about').classList.add('active');
+        document.getElementById('nav-about').classList.add('active');
+        window.scrollTo(0, 0);
+      } else if (hash) {
+        document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-link-item').forEach(b => b.classList.remove('active'));
+        document.getElementById('section-projects').classList.add('active');
+        document.getElementById('nav-projects').classList.add('active');
+        renderDetail(hash);
+      } else {
+        document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-link-item').forEach(b => b.classList.remove('active'));
+        document.getElementById('section-projects').classList.add('active');
+        document.getElementById('nav-projects').classList.add('active');
+        renderGrid();
+        window.scrollTo(0, 0);
+      }
+    }
+
+    handleRoute();
+  </script>
 </body>
-
 </html>
