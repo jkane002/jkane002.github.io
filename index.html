@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" style="background-color:#17202A">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Jonathan Kaneshiro's Portfolio Website">
-  <meta name="keywords" content="Jonathan Kaneshiro, UCR, CS, software engineer, USC ICT">
-  <meta name="author" content="Jonathan Kaneshiro">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="color-scheme" content="dark">
   <title>Jonathan Kaneshiro</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="icon" href="assets/images/me.jpeg">
@@ -18,33 +19,39 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136708583-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-136708583-1');
   </script>
   <!-- Google Adsense -->
-  <script data-ad-client="ca-pub-3830157433970685" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script data-ad-client="ca-pub-3830157433970685" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
   <style>
     /* ── Color tokens ───────────────────────────────────────────── */
     :root {
       color-scheme: dark;
-      --bg:          #17202A;
-      --bg2:         #202d3a;
-      --text:        #e8e8e8;
-      --text-muted:  #98C6C5;
-      --nav-bg:      #202d3a;
-      --nav-border:  #17202A;
-      --card-bg:     #202d3a;
+      --bg: #17202A;
+      --bg2: #202d3a;
+      --text: #e8e8e8;
+      --text-muted: #98C6C5;
+      --nav-bg: #202d3a;
+      --nav-border: #17202A;
+      --card-bg: #202d3a;
       --card-border: #2d3d4e;
-      --card-hover:  #273747;
-      --tag-bg:      #98C6C5;
-      --tag-text:    #17202A;
-      --link:        #98C6C5;
+      --card-hover: #273747;
+      --tag-bg: #98C6C5;
+      --tag-text: #17202A;
+      --link: #98C6C5;
     }
 
+
     /* ── Base ───────────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
     html {
       min-height: 100%;
@@ -59,21 +66,39 @@
       margin: 0;
       padding: 0;
       min-height: 100dvh;
-      padding-bottom: 80px; /* 72 × 1.1 */
+      padding-bottom: 80px;
+      /* 72 × 1.1 */
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
       color: var(--text);
     }
 
-    a { color: var(--link); text-decoration: none; }
-    a:hover { color: var(--link); opacity: 0.8; }
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--link);
+      opacity: 0.8;
+    }
 
     /* ── Page sections ──────────────────────────────────────────── */
-    .page-section { display: none; }
-    .page-section.active { display: block; }
+    .page-section {
+      display: none;
+    }
+
+    .page-section.active {
+      display: block;
+    }
 
     /* Both sections fill remaining height and center content */
     #section-projects,
@@ -81,10 +106,12 @@
       min-height: calc(100dvh - 3.5rem - 80px);
       align-items: center;
     }
+
     #section-projects.active,
     #section-about.active {
       display: flex;
     }
+
     #section-projects.active.detail-view {
       align-items: flex-start;
     }
@@ -112,6 +139,7 @@
       margin: 0 auto;
       padding: 1rem 1.5rem 0.5rem;
     }
+
     #name_title button {
       background: none;
       border: none;
@@ -122,7 +150,10 @@
       color: var(--text);
       cursor: pointer;
     }
-    #name_title button:hover { opacity: 0.75; }
+
+    #name_title button:hover {
+      opacity: 0.75;
+    }
 
     /* ── Section label ──────────────────────────────────────────── */
     .section-label {
@@ -144,7 +175,8 @@
     }
 
     #me-img {
-      width: 88px;  /* 80 × 1.1 */
+      width: 88px;
+      /* 80 × 1.1 */
       height: 88px;
       object-fit: cover;
       border-radius: 50%;
@@ -172,14 +204,21 @@
       max-width: 600px;
       margin-bottom: 1.75rem;
     }
-    .about-bio p { margin-bottom: 0.75rem; }
-    .about-bio p:last-child { margin-bottom: 0; }
+
+    .about-bio p {
+      margin-bottom: 0.75rem;
+    }
+
+    .about-bio p:last-child {
+      margin-bottom: 0;
+    }
 
     .about-links {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
     }
+
     .about-links a {
       display: inline-flex;
       align-items: center;
@@ -189,12 +228,17 @@
       font-size: 0.82rem;
       color: var(--text);
       border: 1px solid var(--card-border);
-      border-radius: 9px; /* 8 × 1.1 */
+      border-radius: 9px;
+      /* 8 × 1.1 */
       padding: 0.4rem 0.9rem;
       text-decoration: none;
       transition: background-color 0.15s;
     }
-    .about-links a:hover { background-color: var(--card-hover); opacity: 1; }
+
+    .about-links a:hover {
+      background-color: var(--card-hover);
+      opacity: 1;
+    }
 
     /* ── Projects grid ──────────────────────────────────────────── */
     .projects-grid {
@@ -232,8 +276,15 @@
       font-size: 1rem;
       transition: background-color 0.15s;
     }
-    .pag-btn:disabled { opacity: 0.25; cursor: default; }
-    .pag-btn:not(:disabled):hover { background-color: var(--card-hover); }
+
+    .pag-btn:disabled {
+      opacity: 0.25;
+      cursor: default;
+    }
+
+    .pag-btn:not(:disabled):hover {
+      background-color: var(--card-hover);
+    }
 
     .pag-info {
       font-family: 'Montserrat', sans-serif;
@@ -255,12 +306,14 @@
     .grid-element {
       background-color: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 13px; /* 12 × 1.1 */
+      border-radius: 13px;
+      /* 12 × 1.1 */
       cursor: pointer;
       overflow: hidden;
       transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     }
+
     .grid-element:hover {
       transform: translateY(-2px);
       background-color: var(--card-hover);
@@ -274,7 +327,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.25rem; /* 2.5 × 0.9 */
+      font-size: 2.25rem;
+      /* 2.5 × 0.9 */
       color: var(--text-muted);
     }
 
@@ -285,10 +339,20 @@
       display: block;
     }
 
-    .post-description { padding: 0.67rem 0.9rem 0.9rem; } /* × 0.9 */
-    .post-description h3 { font-size: 0.9rem; margin-bottom: 0.2rem; } /* 1rem × 0.9 */
+    .post-description {
+      padding: 0.67rem 0.9rem 0.9rem;
+    }
+
+    /* × 0.9 */
+    .post-description h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+
+    /* 1rem × 0.9 */
     .post-description h6 {
-      font-size: 0.7rem; /* 0.78 × 0.9 */
+      font-size: 0.7rem;
+      /* 0.78 × 0.9 */
       font-weight: 400;
       color: var(--text-muted);
       margin: 0;
@@ -296,13 +360,19 @@
     }
 
     /* ── Project detail ─────────────────────────────────────────── */
-    .project-detail { display: none; }
-    .project-detail.active { display: block; }
+    .project-detail {
+      display: none;
+    }
+
+    .project-detail.active {
+      display: block;
+    }
 
     .back-btn {
       background: none;
       border: 1px solid var(--card-border);
-      border-radius: 9px; /* 8 × 1.1 */
+      border-radius: 9px;
+      /* 8 × 1.1 */
       color: var(--text);
       font-family: 'Montserrat', sans-serif;
       font-size: 0.78rem;
@@ -315,29 +385,46 @@
       margin-bottom: 1.5rem;
       transition: background-color 0.15s;
     }
-    .back-btn:hover { background-color: var(--card-hover); }
 
-    .detail-title { font-size: 1.5rem; margin-bottom: 0.2rem; }
+    .back-btn:hover {
+      background-color: var(--card-hover);
+    }
+
+    .detail-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+
     .detail-sub {
       font-size: 0.82rem;
       color: var(--text-muted);
       margin-bottom: 1rem;
       font-family: 'Lato', sans-serif;
     }
+
     .detail-desc {
       color: var(--text-muted);
       line-height: 1.75;
       margin-bottom: 1.25rem;
     }
-    .detail-tags { margin-bottom: 1rem; }
-    .detail-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    .detail-tags {
+      margin-bottom: 1rem;
+    }
+
+    .detail-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
 
     .detail-link-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
       border: 1px solid var(--card-border);
-      border-radius: 9px; /* 8 × 1.1 */
+      border-radius: 9px;
+      /* 8 × 1.1 */
       padding: 0.45rem 1rem;
       font-family: 'Montserrat', sans-serif;
       font-size: 0.78rem;
@@ -346,15 +433,21 @@
       text-decoration: none;
       transition: background-color 0.15s;
     }
-    .detail-link-btn:hover { background-color: var(--card-hover); color: var(--text); }
+
+    .detail-link-btn:hover {
+      background-color: var(--card-hover);
+      color: var(--text);
+    }
 
     /* ── Tags ───────────────────────────────────────────────────── */
     .tag {
       display: inline-block;
       background-color: var(--tag-bg);
       color: var(--tag-text);
-      border-radius: 6px; /* 5 × 1.1 */
-      padding: 2px 9px;   /* 8 × 1.1 */
+      border-radius: 6px;
+      /* 5 × 1.1 */
+      padding: 2px 9px;
+      /* 8 × 1.1 */
       font-size: 0.72rem;
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
@@ -367,10 +460,12 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 66px;                    /* 60 × 1.1 */
+      height: 66px;
+      /* 60 × 1.1 */
       background-color: var(--nav-bg);
       border-top: 1px solid var(--nav-border);
-      border-top-left-radius: 13px;    /* 12 × 1.1 */
+      border-top-left-radius: 13px;
+      /* 12 × 1.1 */
       border-top-right-radius: 13px;
       display: flex;
       align-items: center;
@@ -387,7 +482,10 @@
       justify-content: center;
     }
 
-    .nav-links { display: flex; gap: 0.5rem; }
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+    }
 
     .nav-link-item {
       background: none;
@@ -403,8 +501,15 @@
       cursor: pointer;
       transition: color 0.15s, border-bottom-color 0.15s;
     }
-    .nav-link-item:hover { color: #fff; }
-    .nav-link-item.active { color: #fff; border-bottom-color: var(--text-muted); }
+
+    .nav-link-item:hover {
+      color: #fff;
+    }
+
+    .nav-link-item.active {
+      color: #fff;
+      border-bottom-color: var(--text-muted);
+    }
   </style>
 </head>
 
@@ -496,7 +601,9 @@
         <button class="back-btn" onclick="closeDetail()"><i class="bi bi-arrow-left"></i> Back</button>
         <h2 class="detail-title">USC ICT Animation Pipeline</h2>
         <p class="detail-sub">Internship</p>
-        <p class="detail-desc">Built an animation pipeline for the USC Institute for Creative Technologies using Unity3D. The pipeline streamlined the workflow for animators, reducing manual handoff steps and improving iteration speed across the team.</p>
+        <p class="detail-desc">Built an animation pipeline for the USC Institute for Creative Technologies using
+          Unity3D. The pipeline streamlined the workflow for animators, reducing manual handoff steps and improving
+          iteration speed across the team.</p>
         <div class="detail-tags">
           <span class="tag">Unity3D</span>
           <span class="tag">C#</span>
@@ -510,7 +617,8 @@
         <button class="back-btn" onclick="closeDetail()"><i class="bi bi-arrow-left"></i> Back</button>
         <h2 class="detail-title">Virtual Reality Game</h2>
         <p class="detail-sub">Game Development</p>
-        <p class="detail-desc">Developed a virtual reality game as part of a college project. Built immersive 3D environments, implemented VR input systems, and optimized real-time rendering performance in Unity3D.</p>
+        <p class="detail-desc">Developed a virtual reality game as part of a college project. Built immersive 3D
+          environments, implemented VR input systems, and optimized real-time rendering performance in Unity3D.</p>
         <div class="detail-tags">
           <span class="tag">Unity3D</span>
           <span class="tag">VR</span>
@@ -524,7 +632,8 @@
         <button class="back-btn" onclick="closeDetail()"><i class="bi bi-arrow-left"></i> Back</button>
         <h2 class="detail-title">Android App</h2>
         <p class="detail-sub">Mobile Development</p>
-        <p class="detail-desc">Built the user interface for an Android application, focusing on intuitive UX, responsive layouts, and smooth navigation across multiple screens.</p>
+        <p class="detail-desc">Built the user interface for an Android application, focusing on intuitive UX, responsive
+          layouts, and smooth navigation across multiple screens.</p>
         <div class="detail-tags">
           <span class="tag">Android</span>
           <span class="tag">Java</span>
@@ -538,7 +647,9 @@
         <button class="back-btn" onclick="closeDetail()"><i class="bi bi-arrow-left"></i> Back</button>
         <h2 class="detail-title">Portfolio Website</h2>
         <p class="detail-sub">Web Development</p>
-        <p class="detail-desc">Designed and built a personal portfolio website to showcase projects, host a blog, and offer tutoring services. Originally built with Django on Heroku with AWS S3; migrated to a static GitHub Pages site.</p>
+        <p class="detail-desc">Designed and built a personal portfolio website to showcase projects, host a blog, and
+          offer tutoring services. Originally built with Django on Heroku with AWS S3; migrated to a static GitHub Pages
+          site.</p>
         <div class="detail-tags">
           <span class="tag">Python</span>
           <span class="tag">Django</span>
@@ -566,11 +677,8 @@
           Replace src with your real photo:
           src="assets/images/me.jpeg"
         -->
-        <img
-          src="https://ui-avatars.com/api/?name=Jonathan+Kaneshiro&size=160&background=17202A&color=98C6C5&bold=true"
-          alt="Jonathan Kaneshiro"
-          id="me-img"
-        >
+        <img src="https://ui-avatars.com/api/?name=Jonathan+Kaneshiro&size=160&background=17202A&color=98C6C5&bold=true"
+          alt="Jonathan Kaneshiro" id="me-img">
         <div class="about-header-text">
           <h1>Jonathan Kaneshiro</h1>
           <p class="about-tagline">Software Quality Assurance Engineer</p>
@@ -578,8 +686,11 @@
       </div>
 
       <div class="about-bio">
-        <p>I've spent the last 5 years in quality assurance — starting out as a tester and growing into an engineering role. I care a lot about building things that actually work, and I take pride in catching what others miss.</p>
-        <p>Outside of work, I enjoy trying new restaurants, getting lost in good music, traveling, chasing good views, and staying active at the gym.</p>
+        <p>I've spent the last 5 years in quality assurance — starting out as a tester and growing into an engineering
+          role. I care a lot about building things that actually work, and I take pride in catching what others miss.
+        </p>
+        <p>Outside of work, I enjoy trying new restaurants, getting lost in good music, traveling, chasing good views,
+          and staying active at the gym.</p>
       </div>
 
       <div class="about-links">
@@ -742,4 +853,5 @@
     handleRoute();
   </script>
 </body>
+
 </html>
